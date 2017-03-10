@@ -1,0 +1,156 @@
+body {
+	background-color: #e6e6e6;
+	}
+
+#header
+{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: auto;
+    z-index: 20;
+    border:1px solid #e6e6e6;
+}
+
+#icon_menu{
+    padding-bottom: 15px;
+}
+
+#nav_logo{
+    float: left;
+    display: block;
+    position: relative;
+    padding-left: 15px;
+    padding-right: 10px;
+}
+
+#select_button{
+    width: auto;
+    margin: 30px 0 0 30px;
+    text-align: center;
+}
+
+.nav_button
+{
+   height:auto;
+   width: 100px;
+   border: 1px solid #e6e6e6;
+   background-color: #e6e6e6;
+   font-size: 16px;
+   cursor: pointer;
+   color: #00cc99;
+}
+
+#search_bar:focus {
+    width: 10%;
+}
+
+#search_bar {
+    border: 1px solid #e6e6e6;
+    font-size: 16px;
+    background-image: url('/pic/searchbutton.png');
+    background-position: 0px 10px; 
+    background-repeat: no-repeat;
+    background-color: #e6e6e6;
+    padding: 12px 12px 0px 30px;
+    float:right;
+    position: relative;
+    margin: 20px 0 0 30px;
+}
+
+#nav_bar{
+    border: 1px solid black;
+    Position:absolute;
+    width:15%;
+    height:100%;
+    
+}
+
+#account{
+   border: 1px solid black; 
+   height:20%;
+   position: relative;
+}
+#subreddits_list{
+   border: 1px solid black; 
+   height:75%;
+   position: relative;
+}
+
+#gold_goal{
+    border: 1px solid black;
+   height:3%;
+   position: relative;
+}
+
+#content{
+    margin-top: 60px;
+    border: 1px solid black;
+    float:right;
+    width:84.5% ;
+    height:auto;
+}
+
+.posts_box{
+    clear: both;
+    margin: 20px;
+    padding-right: 10%;
+}
+
+.post_box{
+    width: 300px;
+    height:auto;
+    border: 1px solid black;
+   
+}
+
+article{
+    margin-left: 30px;
+    margin-top: 10px;
+    border: 1px solid black;
+    padding: 18px 24px;
+}
+
+.post_header{
+    height:40px;
+}
+.post_content{
+    margin-top: 5px;
+    border: 1px solid black;
+    height:200px;
+}
+
+.content_footer{
+      border: 1px solid black;
+      margin-top: 2px;
+      height:40px;
+}
+
+.author_date_font{
+    font-size: small;
+    color:#b3b3b3;
+}
+
+.save_share {
+    float:right;
+    cursor: pointer;
+    color: #00cc99;
+    margin-top: 6px;
+}
+
+.float_left{
+    float: left;
+}
+
+.float_right{
+    float: right;
+}
+
+.save_share_botton
+{
+   border: 1px solid #e6e6e6;
+   background-color: #e6e6e6;
+   font-size: 16px;
+   cursor: pointer;
+   color: #00cc99;
+}
