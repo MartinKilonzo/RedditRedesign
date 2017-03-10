@@ -1,0 +1,13 @@
+{
+  "manifest_version": 2,
+
+  "name": "Modify CSS",
+  "version": "0.1.0",
+  "description": "reddit demo extension",
+
+  "content_scripts": [{
+    "css": ["styles.css"],
+    "js": ["content.js"],
+    "matches": ["https://www.reddit.com/"]
+  }]
+}
