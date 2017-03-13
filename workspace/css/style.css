@@ -1,3 +1,7 @@
+html,body {
+	height: 100%;
+    width: 100%;
+}
 body {
 	background-color: #e6e6e6;
 	}
@@ -8,12 +12,13 @@ body {
     top: 0;
     width: 100%;
     height: auto;
-    z-index: 20;
+    z-index: 0;
     border:1px solid #e6e6e6;
 }
 
 #icon_menu{
     padding-bottom: 15px;
+	border:o px solid  #e6e6e6;
 }
 
 #nav_logo{
@@ -41,14 +46,10 @@ body {
    color: #00cc99;
 }
 
-#search_bar:focus {
-    width: 10%;
-}
-
 #search_bar {
     border: 1px solid #e6e6e6;
     font-size: 16px;
-    background-image: url('/pic/searchbutton.png');
+    background-image: url("searchbutton.png");
     background-position: 0px 10px; 
     background-repeat: no-repeat;
     background-color: #e6e6e6;
@@ -58,37 +59,70 @@ body {
     margin: 20px 0 0 30px;
 }
 
-#nav_bar{
-    border: 1px solid black;
+#search_bar_cover {
+    border: 1px solid #e6e6e6;
+    font-size: 16px;
+    background-image: url("searchbutton.png");
+    background-position: 0px 10px; 
+    background-repeat: no-repeat;
+    background-color: #e6e6e6;
+	padding: 12px 12px 0px 30px;
+    position: relative;
+}
+
+#nav_bar{ 
     Position:absolute;
-    width:15%;
     height:100%;
-    
+	width:15%;
+    z-index:2000;
 }
 
 #account{
-   border: 1px solid black; 
+   background-color:#A9A9A9;
    height:20%;
    position: relative;
 }
+
+#account img{
+	padding-left:10px;
+}
+
+.avator_name {
+	padding-left:20px;
+	color:white;
+	font-size:small;
+}
+
 #subreddits_list{
-   border: 1px solid black; 
    height:75%;
    position: relative;
+   background-color:white;
+   overflow-y:scroll;
+}
+
+#subreddits_list img{
+   padding-left:20px;
+}
+
+#subreddits_list span{
+   float:right;
+   padding-left:30px;
+   padding-right:5px;
+   font-size:x-large;
+   margin-top: 5px;
 }
 
 #gold_goal{
-    border: 1px solid black;
+   background-color:#A9A9A9;
    height:3%;
    position: relative;
 }
 
 #content{
-    margin-top: 60px;
-    border: 1px solid black;
-    float:right;
-    width:84.5% ;
+    margin-top: 100px;
+    width:auto;
     height:auto;
+    overflow-y:auto;
 }
 
 .posts_box{
@@ -100,15 +134,13 @@ body {
 .post_box{
     width: 300px;
     height:auto;
-    border: 1px solid black;
-   
 }
 
 article{
     margin-left: 30px;
     margin-top: 10px;
-    border: 1px solid black;
     padding: 18px 24px;
+	background-color:white;
 }
 
 .post_header{
@@ -116,12 +148,15 @@ article{
 }
 .post_content{
     margin-top: 5px;
-    border: 1px solid black;
-    height:200px;
+    height:190px;
+	width:300px;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+	font-size:x-large;
+	
 }
 
 .content_footer{
-      border: 1px solid black;
       margin-top: 2px;
       height:40px;
 }
@@ -148,9 +183,101 @@ article{
 
 .save_share_botton
 {
-   border: 1px solid #e6e6e6;
-   background-color: #e6e6e6;
+   border: 1px solid white;
+   background-color: white;
    font-size: 16px;
    cursor: pointer;
    color: #00cc99;
+}
+
+.vote {
+   border: 1px solid white;
+   background-color: white;
+   cursor: pointer;
+}
+
+
+#tinymask{position:absolute; display:none; top:0; left:0; height:100%; width:100%; background:#000000; z-index:1500;}
+
+#tinybox{
+	position:absolute; 
+	display:none; 
+	padding:10px; 
+	background:#ffffff no-repeat 50% 50%; 
+	border:10px solid #e3e3e3; 
+	z-index:2000;
+	}
+#tinymask{position:absolute; display:none; top:0; left:0; height:100%; width:100%; background:#000000; z-index:1500;}
+#tinycontent{
+	background:#ffffff; 
+	font-size:1.1em;}
+	
+.progress {
+  font-size: 1.2em;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.progress--active .progress__bar {
+  opacity: 1;
+}
+.progress__text {
+  width: 20em;
+  padding: 0 0.9em;
+  position: absolute;
+}
+.progress__text em {
+  font-style: normal;
+}
+.progress__bar {
+  color: white;
+  font-size: 12px;
+  font-weight: normal;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.6);
+  line-height: 19px;
+  display: block;
+  position: relative;
+  top: -1px;
+  left: -1px;
+  width: 0%;
+  height: 100%;
+  opacity: 0;
+  border: 1px solid;
+  border-radius: 2px 0 0 2px;
+  background-size: 100px 30px, 130px 30px, 130px 30px;
+  background-position: -20% center, right center, left center;
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  -webkit-transition: opacity 0.2s ease, width 0.8s ease-out, background-color 1s ease, border-color 0.3s ease, box-shadow 1s ease;
+          transition: opacity 0.2s ease, width 0.8s ease-out, background-color 1s ease, border-color 0.3s ease, box-shadow 1s ease;
+  -webkit-animation: pulse 2s ease-out infinite;
+          animation: pulse 2s ease-out infinite;
+  background-color: rgba(201, 4, 20, 0.95);
+  background-image: -webkit-linear-gradient(0deg, rgba(226, 4, 22, 0) 10%, rgba(250, 6, 26, 0.8) 30%, #fb1f31 70%, rgba(250, 6, 26, 0.8) 80%, rgba(226, 4, 22, 0) 90%), -webkit-linear-gradient(left, rgba(251, 31, 49, 0) 0%, #fb1f31 100%), -webkit-linear-gradient(right, rgba(251, 31, 49, 0) 0%, #fb1f31 100%);
+  background-image: linear-gradient(90deg, rgba(226, 4, 22, 0) 10%, rgba(250, 6, 26, 0.8) 30%, #fb1f31 70%, rgba(250, 6, 26, 0.8) 80%, rgba(226, 4, 22, 0) 90%), linear-gradient(to right, rgba(251, 31, 49, 0) 0%, #fb1f31 100%), linear-gradient(to left, rgba(251, 31, 49, 0) 0%, #fb1f31 100%);
+  border-color: #fb3848;
+  box-shadow: 0 0 0.6em #fa061a inset, 0 0 0.4em #e20416 inset, 0 0 0.5em rgba(201, 4, 20, 0.5), 0 0 0.1em rgba(254, 206, 210, 0.5);
+}
+
+.progress__bar--yellow {
+  background-color: rgba(232, 158, 0, 0.95);
+  background-image: -webkit-linear-gradient(0deg, rgba(255, 174, 2, 0) 10%, rgba(255, 183, 28, 0.8) 30%, #ffbf36 70%, rgba(255, 183, 28, 0.8) 80%, rgba(255, 174, 2, 0) 90%), -webkit-linear-gradient(left, rgba(255, 191, 54, 0) 0%, #ffbf36 100%), -webkit-linear-gradient(right, rgba(255, 191, 54, 0) 0%, #ffbf36 100%);
+  background-image: linear-gradient(90deg, rgba(255, 174, 2, 0) 10%, rgba(255, 183, 28, 0.8) 30%, #ffbf36 70%, rgba(255, 183, 28, 0.8) 80%, rgba(255, 174, 2, 0) 90%), linear-gradient(to right, rgba(255, 191, 54, 0) 0%, #ffbf36 100%), linear-gradient(to left, rgba(255, 191, 54, 0) 0%, #ffbf36 100%);
+  border-color: #ffc74f;
+  box-shadow: 0 0 0.6em #ffb71c inset, 0 0 0.4em #ffae02 inset, 0 0 0.5em rgba(232, 158, 0, 0.5), 0 0 0.1em rgba(255, 248, 232, 0.5);
+}
+
+.box {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 5px;
+  backdrop-filter: blur(5px);
+
+}
+
+.container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
 }

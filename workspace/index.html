@@ -6,26 +6,33 @@
         <title>Reddit test main page</title>
         <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 		<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+		<link rel="stylesheet" href="css/jquery.upvote.css">
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
  	    <script type="text/javascript" src="js/scripts.js"></script>
+ 	    <script type="text/javascript" src="js/tinybox.js"></script>
+		<script src="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="js/jquery.upvote.js"></script>
+		
     </head>
+    
     <body>
             <div id ="header">
                 <div id="nav_logo">
-                    <img src="/pic/icon-menu.png" id="icon_menu" name="icon_menu" height="15" width="15"/>
-                    <img src="/pic/Reddit_logo.svg.png" alt="logo" name="logo" width="130" height="60"/>
+                 <a href="nav.html"><img src="pic/icon-menu.png" id="icon_menu" name="icon_menu" height="15" width="15"/></a>
+                  <a href="index.html"><img src="pic/Reddit_logo.svg.png" alt="logo" name="logo" width="130" height="60"/></a>
                 </div>
-             
+            
                 <div>
                     <input type="text" id="search_bar" placeholder="Search"/>
                 </div>
                   
                 <div id="select_button">
-                    <button class="nav_button">TOP</botton>
-                    <button class="nav_button">TRENDING</botton>
-                    <button class="nav_button">BEST</botton>
+                    <button class="nav_button">TOP</button>
+                    <button class="nav_button">TRENDING</button>
+                    <button class="nav_button">BEST</button>
                 </div>
             </div>
-            
+
             <div id="content">
                 <div class="content_list">
                     <div class="posts_box">
@@ -34,9 +41,10 @@
                            <div class="post_box"> 
                                 <div class="post_header">
                                     <h3 class="float_left">Content post</h3>
-                                    <h3 class="float_right">LIKES</h3>
+                                    <h3 class="float_right" value="500"><button class="vote"><img src="pic/down.jpg" width="10" height="10"></button><button class="vote"><img src="pic/up.png" width="10" height="10"></button></h3>
                                 </div>
                             <div class="post_content">
+							<img src="pic/pic2.jpg" class="content_pic" name="content_pic" height="200" width="300"/>
                             </div>
                          </div>
                          
@@ -47,8 +55,8 @@
                                 </div>
                                 
                                 <div class="save_share">
-                                    <button class="save_share_botton">SAVE</botton>
-                                    <button class="save_share_botton">SHARE</botton>
+                                    <button class="save_share_botton" name="save">SAVE</button>
+                                    <button class="save_share_botton" name="share">SHARE</button>
                                 </div>
                             </footer>
                         </article>
@@ -57,9 +65,10 @@
                            <div class="post_box"> 
                                 <div class="post_header">
                                     <h3 class="float_left">Content post</h3>
-                                    <h3 class="float_right">LIKES</h3>
+                                    <h3 class="float_right"><button class="vote" name="downvote"><img src="pic/down.jpg" width="15" height="15"></button>500<button class="vote" name="upvote"><img src="pic/up.png" width="16" height="16"></button>
                                 </div>
                             <div class="post_content">
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing tempus. Cras a libero a tellus molestie volutpat ut et metus.Proin eget lorem metus. Proin sit amet sagittis libero. Ut egestas eu felis at varius. Praesent et erat in lacus pellentesque semper at mattis augue</p>
                             </div>
                          </div>
                          
@@ -70,8 +79,8 @@
                                 </div>
                                 
                                 <div class="save_share">
-                                    <button class="save_share_botton">SAVE</botton>
-                                    <button class="save_share_botton">SHARE</botton>
+                                    <button class="save_share_botton" name="save">SAVE</button>
+                                    <button class="save_share_botton" name="share">SHARE</button>
                                 </div>
                             </footer>
                         </article>
@@ -80,9 +89,12 @@
                            <div class="post_box"> 
                                 <div class="post_header">
                                     <h3 class="float_left">Content post</h3>
-                                    <h3 class="float_right">LIKES</h3>
+									
+									<h3 class="float_right"><button class="vote" name="downvote"><img src="pic/down.jpg" width="15" height="15"></button>500<button class="vote" name="upvote"><img src="pic/up.png" width="16" height="16"></button>
+									</h3>
                                 </div>
                             <div class="post_content">
+							<img src="pic/pic2.jpg" class="content_pic" name="content_pic" height="200" width="300"/>
                             </div>
                          </div>
                          
@@ -93,23 +105,24 @@
                                 </div>
                                 
                                 <div class="save_share">
-                                    <button class="save_share_botton">SAVE</botton>
-                                    <button class="save_share_botton">SHARE</botton>
+                                    <button class="save_share_botton" name="save">SAVE</button>
+                                    <button class="save_share_botton" name="share">SHARE</button>
                                 </div>
                             </footer>
                         </article>
                         
                     </div>
-                    
+                  
                     <div class="posts_box">
                         
                         <article class="float_right">
                            <div class="post_box"> 
                                 <div class="post_header">
                                     <h3 class="float_left">Content post</h3>
-                                    <h3 class="float_right">LIKES</h3>
+                                    <h3 class="float_right"><button class="vote" name="downvote"><img src="pic/down.jpg" width="15" height="15"></button>500<button class="vote" name="upvote"><img src="pic/up.png" width="16" height="16"></button>
                                 </div>
                             <div class="post_content">
+							<img src="pic/pic2.jpg" class="content_pic" name="content_pic" height="200" width="300"/>
                             </div>
                          </div>
                          
@@ -120,8 +133,8 @@
                                 </div>
                                 
                                 <div class="save_share">
-                                    <button class="save_share_botton">SAVE</botton>
-                                    <button class="save_share_botton">SHARE</botton>
+                                    <button class="save_share_botton" name="save">SAVE</button>
+                                    <button class="save_share_botton" name="share">SHARE</button>
                                 </div>
                             </footer>
                         </article>
@@ -130,9 +143,11 @@
                            <div class="post_box"> 
                                 <div class="post_header">
                                     <h3 class="float_left">Content post</h3>
-                                    <h3 class="float_right">LIKES</h3>
+                                    <h3 class="float_right"><button class="vote" name="downvote"><img src="pic/down.jpg" width="15" height="15"></button>500<button class="vote" name="upvote"><img src="pic/up.png" width="16" height="16"></button>
                                 </div>
                             <div class="post_content">
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing tempus. Cras a libero a tellus molestie volutpat ut et metus.Proin eget lorem metus. Proin sit amet sagittis libero. Ut egestas eu felis at varius. Praesent et erat in lacus pellentesque semper at mattis augue</p>
+                            
                             </div>
                          </div>
                          
@@ -143,8 +158,8 @@
                                 </div>
                                 
                                 <div class="save_share">
-                                    <button class="save_share_botton">SAVE</botton>
-                                    <button class="save_share_botton">SHARE</botton>
+                                    <button class="save_share_botton" name="save">SAVE</button>
+                                    <button class="save_share_botton" name="share">SHARE</button>
                                 </div>
                             </footer>
                         </article>
@@ -153,9 +168,10 @@
                            <div class="post_box"> 
                                 <div class="post_header">
                                     <h3 class="float_left">Content post</h3>
-                                    <h3 class="float_right">LIKES</h3>
+                                    <h3 class="float_right"><button class="vote" name="downvote"><img src="pic/down.jpg" width="15" height="15"></button>500<button class="vote" name="upvote"><img src="pic/up.png" width="16" height="16"></button>
                                 </div>
                             <div class="post_content">
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing tempus. Cras a libero a tellus molestie volutpat ut et metus.Proin eget lorem metus. Proin sit amet sagittis libero. Ut egestas eu felis at varius. Praesent et erat in lacus pellentesque semper at mattis augue</p>
                             </div>
                          </div>
                          
@@ -166,28 +182,94 @@
                                 </div>
                                 
                                 <div class="save_share">
-                                    <button class="save_share_botton">SAVE</botton>
-                                    <button class="save_share_botton">SHARE</botton>
+                                    <button class="save_share_botton" name="save">SAVE</button>
+                                    <button class="save_share_botton" name="share">SHARE</button>
                                 </div>
                             </footer>
                         </article>
                         
                     </div>
-                    
-                </div>
-            </div>
-            
-                <div id="nav_bar">
-                <div id="account">
-
+                     
+					<div class="posts_box">
+                        
+                        <article class="float_right">
+                           <div class="post_box"> 
+                                <div class="post_header">
+                                    <h3 class="float_left">Content post</h3>
+                                    <h3 class="float_right"><button class="vote" name="downvote"><img src="pic/down.jpg" width="15" height="15"></button>500<button class="vote" name="upvote"><img src="pic/up.png" width="16" height="16"></button>
+                                </div>
+                            <div class="post_content">
+							<img src="pic/pic2.jpg" class="content_pic" name="content_pic" height="200" width="300"/>
+                            </div>
+                         </div>
+                         
+                            <footer class="content_footer">
+                                <div class="float_left">
+                                <span class="author_date_font">Author</<span><br />
+                                <span class="author_date_font">Date</span>
+                                </div>
+                                
+                                <div class="save_share">
+                                    <button class="save_share_botton" name="save">SAVE</button>
+                                    <button class="save_share_botton" name="share">SHARE</button>
+                                </div>
+                            </footer>
+                        </article>
+                        
+                        <article class="float_right">
+                           <div class="post_box"> 
+                                <div class="post_header">
+                                    <h3 class="float_left">Content post</h3>
+                                    <h3 class="float_right"><button class="vote" name="downvote"><img src="pic/down.jpg" width="15" height="15"></button>500<button class="vote" name="upvote"><img src="pic/up.png" width="16" height="16"></button>
+                                </div>
+                            <div class="post_content">
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing tempus. Cras a libero a tellus molestie volutpat ut et metus.Proin eget lorem metus. Proin sit amet sagittis libero. Ut egestas eu felis at varius. Praesent et erat in lacus pellentesque semper at mattis augue</p>
+                            
+                            </div>
+                         </div>
+                         
+                            <footer class="content_footer">
+                                <div class="float_left">
+                                <span class="author_date_font">Author</<span><br />
+                                <span class="author_date_font">Date</span>
+                                </div>
+                                
+                                <div class="save_share">
+                                    <button class="save_share_botton" name="save">SAVE</button>
+                                    <button class="save_share_botton" name="share">SHARE</button>
+                                </div>
+                            </footer>
+                        </article>
+                        
+                        <article class="float_right">
+                           <div class="post_box"> 
+                                <div class="post_header">
+                                    <h3 class="float_left">Content post</h3>
+                                    <h3 class="float_right"><button class="vote" name="downvote"><img src="pic/down.jpg" width="15" height="15"></button>500<button class="vote" name="upvote"><img src="pic/up.png" width="16" height="16"></button>
+                                </div>
+                            <div class="post_content">
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing tempus. Cras a libero a tellus molestie volutpat ut et metus.Proin eget lorem metus. Proin sit amet sagittis libero. Ut egestas eu felis at varius. Praesent et erat in lacus pellentesque semper at mattis augue</p>
+                            </div>
+                         </div>
+                         
+                            <footer class="content_footer">
+                                <div class="float_left">
+                                <span class="author_date_font">Author</<span><br />
+                                <span class="author_date_font">Date</span>
+                                </div>
+                                
+                                <div class="save_share">
+                                    <button class="save_share_botton" name="save">SAVE</button>
+                                    <button class="save_share_botton" name="share">SHARE</button>
+                                </div>
+                            </footer>
+                        </article>
+                        
                     </div>
-                <div id="subreddits_list">
+					
                 </div>
-                
-                <div id="gold_goal">
-                </div>
-            
+				
             </div>
-            
     </body>
-</html>
+				
+	</html>
