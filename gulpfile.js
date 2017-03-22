@@ -11,7 +11,7 @@ gulp.task('start', () => {
 });
 
 gulp.task('js', () => {
-  return gulp.src('src/j003.js')
+  return gulp.src('src/**/*.js')
     .pipe(browserify({
       insertGlobals: true,
     }))
@@ -38,8 +38,17 @@ gulp.task('html', () => {
     }));
 });
 
-gulp.task('default', ['start', 'js', 'css', 'html'], () => {
+gulp.task('json', () => {
+  return gulp.src('src/**/*.json')
+    .pipe(gulp.dest('app/'))
+    .pipe(browserSync.reload({
+      stream: true,
+    }));
+});
+
+gulp.task('default', ['start', 'js', 'css', 'html', 'json'], () => {
   gulp.watch('src/**/*.js', ['js']);
   gulp.watch('src/styles/**/*.css', ['css']);
   gulp.watch('src/**/*.html', ['html']);
+  gulp.watch('src/**/*.json', ['json']);
 });

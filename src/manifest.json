@@ -1,0 +1,13 @@
+{
+    "manifest_version": 2,
+
+    "name": "Reddit Refresh",
+    "version": "0.1.0",
+    "description": "A modern reskin for Reddit.",
+
+    "content_scripts": [{
+        "css": ["styles/styles.css"],
+        "js": ["scripts/content.js"],
+        "matches": ["https://blog.lateral.io/*"]
+    }]
+}

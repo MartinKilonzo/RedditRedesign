@@ -2,7 +2,7 @@
   "name": "reddit-redesign",
   "version": "0.0.1",
   "description": "HCI",
-  "main": "main.js",
+  "main": "src/scripts/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/MartinKilonzo/RedditRedesign#readme",
   "devDependencies": {
-    "browsersync": "0.0.1-security",
+    "browser-sync": "^2.18.8",
+    "gulp": "^3.9.1",
     "gulp-browserify": "^0.5.1"
   }
 }
