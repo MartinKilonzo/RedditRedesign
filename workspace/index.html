@@ -5,12 +5,13 @@
         <meta name="description" content="HCI TEST">
         <title>Reddit test main page</title>
         <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+		<link rel="stylesheet" href="css/colorbox.css" />
 		<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 		<link rel="stylesheet" href="css/jquery.upvote.css">
 		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
  	    <script type="text/javascript" src="js/scripts.js"></script>
  	    <script type="text/javascript" src="js/tinybox.js"></script>
-		<script src="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/jquery.colorbox-min.js"></script>
 		<script src="js/jquery.upvote.js"></script>
 		
     </head>
@@ -18,8 +19,8 @@
     <body>
             <div id ="header">
                 <div id="nav_logo">
-                 <a href="nav.html"><img src="pic/icon-menu.png" id="icon_menu" name="icon_menu" height="15" width="15"/></a>
-                  <a href="index.html"><img src="pic/Reddit_logo.svg.png" alt="logo" name="logo" width="130" height="60"/></a>
+                  <img src="pic/icon-menu.png" id="icon_menu" name="icon_menu" height="15" width="15"/>
+                  <a href="index.html"><img src="pic/Reddit_logo.svg.png" alt="logo" name="logo" width="130" height="40"/></a>
                 </div>
             
                 <div>
@@ -27,31 +28,33 @@
                 </div>
                   
                 <div id="select_button">
-                    <button class="nav_button">TOP</button>
-                    <button class="nav_button">TRENDING</button>
-                    <button class="nav_button">BEST</button>
+                   <a href="https://www.reddit.com/top/"> <button class="nav_button">TOP</button></a>
+                   <a href="https://www.reddit.com/rising/"><button class="nav_button">TRENDING</button></a>
+                   <a href="https://www.reddit.com/gilded/"> <button class="nav_button">BEST</button></a>
                 </div>
             </div>
 
             <div id="content">
                 <div class="content_list">
                     <div class="posts_box">
-                        
+					
                         <article class="float_right">
                            <div class="post_box"> 
                                 <div class="post_header">
-                                    <h3 class="float_left">Content post</h3>
-                                    <h3 class="float_right" value="500"><button class="vote"><img src="pic/down.jpg" width="10" height="10"></button><button class="vote"><img src="pic/up.png" width="10" height="10"></button></h3>
+                                    <h3 class="float_left">I like cakes</h3>
+                                  <h3 class="float_right">
+								  <button class="vote down"><img src="pic/down.jpg" width="15" height="15"></button><span class="count">300</span><button class="vote upvote"><img src="pic/up.png" width="16" height="16"></button>
+								  </h3>
                                 </div>
                             <div class="post_content">
-							<img src="pic/pic2.jpg" class="content_pic" name="content_pic" height="200" width="300"/>
+							<a href="pic/pic1.jpg" class="content_pic"  title="I like cakes"><img src="pic/pic1.jpg" name="content_pic" height="200" width="300"/></a>
                             </div>
                          </div>
                          
                             <footer class="content_footer">
                                 <div class="float_left">
-                                <span class="author_date_font">Author</<span><br />
-                                <span class="author_date_font">Date</span>
+                                <span class="author_date_font">Colin</<span><br />
+                                <span class="author_date_font">2017/03/30</span>
                                 </div>
                                 
                                 <div class="save_share">
@@ -64,18 +67,18 @@
                         <article class="float_right">
                            <div class="post_box"> 
                                 <div class="post_header">
-                                    <h3 class="float_left">Content post</h3>
-                                    <h3 class="float_right"><button class="vote" name="downvote"><img src="pic/down.jpg" width="15" height="15"></button>500<button class="vote" name="upvote"><img src="pic/up.png" width="16" height="16"></button>
+                                    <h3 class="float_left">Letter to my voting</h3>
+                                    <h3 class="float_right"><button class="vote down"><img src="pic/down.jpg" width="15" height="15"></button><span class="count">400</span><button class="vote" name="upvote"><img src="pic/up.png" width="16" height="16"></button>
                                 </div>
                             <div class="post_content">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing tempus. Cras a libero a tellus molestie volutpat ut et metus.Proin eget lorem metus. Proin sit amet sagittis libero. Ut egestas eu felis at varius. Praesent et erat in lacus pellentesque semper at mattis augue</p>
+							<p>So the title pretty much says it all. Only thing to add is that she was a strong Bernie backer in the primary, but was lured back into the party by Trump fear. She'd back him again in a heartbeat, but for now sees the greatest danger as Trump. This is my response to her latest e-mail about another terrible thing Trump has done.</p>
                             </div>
                          </div>
                          
                             <footer class="content_footer">
                                 <div class="float_left">
-                                <span class="author_date_font">Author</<span><br />
-                                <span class="author_date_font">Date</span>
+                                <span class="author_date_font">NateRoberts<span><br />
+                                <span class="author_date_font">40 minutes ago</span>
                                 </div>
                                 
                                 <div class="save_share">
@@ -88,20 +91,20 @@
                         <article class="float_right">
                            <div class="post_box"> 
                                 <div class="post_header">
-                                    <h3 class="float_left">Content post</h3>
+                                    <h3 class="float_left">Lovely dog</h3>
 									
-									<h3 class="float_right"><button class="vote" name="downvote"><img src="pic/down.jpg" width="15" height="15"></button>500<button class="vote" name="upvote"><img src="pic/up.png" width="16" height="16"></button>
+									<h3 class="float_right"><button class="vote down"><img src="pic/down.jpg" width="15" height="15"></button><span class="count">500</span><button class="vote" name="upvote"><img src="pic/up.png" width="16" height="16"></button>
 									</h3>
                                 </div>
                             <div class="post_content">
-							<img src="pic/pic2.jpg" class="content_pic" name="content_pic" height="200" width="300"/>
+							<a href="pic/pic2.jpg" class="content_pic"  title="Lovely dog"><img src="pic/pic2.jpg" class="content_pic" name="content_pic" height="200" width="300" title="Lovely dog"/></a>
                             </div>
                          </div>
                          
                             <footer class="content_footer">
                                 <div class="float_left">
-                                <span class="author_date_font">Author</<span><br />
-                                <span class="author_date_font">Date</span>
+                                <span class="author_date_font">Ruipeng<span><br />
+                                <span class="author_date_font">40 minutes ago</span>
                                 </div>
                                 
                                 <div class="save_share">
@@ -114,47 +117,46 @@
                     </div>
                   
                     <div class="posts_box">
-                        
-                        <article class="float_right">
+                         <article class="float_right">
                            <div class="post_box"> 
                                 <div class="post_header">
-                                    <h3 class="float_left">Content post</h3>
-                                    <h3 class="float_right"><button class="vote" name="downvote"><img src="pic/down.jpg" width="15" height="15"></button>500<button class="vote" name="upvote"><img src="pic/up.png" width="16" height="16"></button>
+                                    <h3 class="float_left">Russia hired 100 crews</h3>
+                                    <h3 class="float_right"><button class="vote down"><img src="pic/down.jpg" width="15" height="15"></button><span class="count">40</span><button class="vote" name="upvote"><img src="pic/up.png" width="16" height="16"></button>
                                 </div>
                             <div class="post_content">
-							<img src="pic/pic2.jpg" class="content_pic" name="content_pic" height="200" width="300"/>
-                            </div>
-                         </div>
-                         
-                            <footer class="content_footer">
-                                <div class="float_left">
-                                <span class="author_date_font">Author</<span><br />
-                                <span class="author_date_font">Date</span>
-                                </div>
-                                
-                                <div class="save_share">
-                                    <button class="save_share_botton" name="save">SAVE</button>
-                                    <button class="save_share_botton" name="share">SHARE</button>
-                                </div>
-                            </footer>
-                        </article>
-                        
-                        <article class="float_right">
-                           <div class="post_box"> 
-                                <div class="post_header">
-                                    <h3 class="float_left">Content post</h3>
-                                    <h3 class="float_right"><button class="vote" name="downvote"><img src="pic/down.jpg" width="15" height="15"></button>500<button class="vote" name="upvote"><img src="pic/up.png" width="16" height="16"></button>
-                                </div>
-                            <div class="post_content">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing tempus. Cras a libero a tellus molestie volutpat ut et metus.Proin eget lorem metus. Proin sit amet sagittis libero. Ut egestas eu felis at varius. Praesent et erat in lacus pellentesque semper at mattis augue</p>
+							<p>The Kremlin paid an army of more than 1,000 people to create fake anti-Hillary Clinton news stories targeting key swing states, the leading Democrat on the committee looking into alleged Russian interference in the US election has said.</p>
                             
                             </div>
                          </div>
                          
                             <footer class="content_footer">
                                 <div class="float_left">
-                                <span class="author_date_font">Author</<span><br />
-                                <span class="author_date_font">Date</span>
+                                <span class="author_date_font">Martin<span><br />
+                                <span class="author_date_font">2017/03/29</span>
+                                </div>
+                                
+                                <div class="save_share">
+                                    <button class="save_share_botton" name="save">SAVE</button>
+                                    <button class="save_share_botton" name="share">SHARE</button>
+                                </div>
+                            </footer>
+                        </article>
+						
+                        <article class="float_right">
+                           <div class="post_box"> 
+                                <div class="post_header">
+                                    <h3 class="float_left">Panda!</h3>
+                                    <h3 class="float_right"><button class="vote down"><img src="pic/down.jpg" width="15" height="15"></button><span class="count">50</span><button class="vote" name="upvote"><img src="pic/up.png" width="16" height="16"></button>
+                                </div>
+                            <div class="post_content">
+							<a href="pic/pic3.jpg" class="content_pic"  title="I am panda"><img src="pic/pic3.jpg" class="content_pic" name="content_pic" height="200" width="300" title="Panda!"/></a>
+                            </div>
+                         </div>
+                         
+                            <footer class="content_footer">
+                                <div class="float_left">
+                                <span class="author_date_font">Ruipeng<span><br />
+                                <span class="author_date_font">2017/03/12</span>
                                 </div>
                                 
                                 <div class="save_share">
@@ -167,18 +169,18 @@
                         <article class="float_right">
                            <div class="post_box"> 
                                 <div class="post_header">
-                                    <h3 class="float_left">Content post</h3>
-                                    <h3 class="float_right"><button class="vote" name="downvote"><img src="pic/down.jpg" width="15" height="15"></button>500<button class="vote" name="upvote"><img src="pic/up.png" width="16" height="16"></button>
+                                    <h3 class="float_left">Game of Thrones</h3>
+                                    <h3 class="float_right"><button class="vote down"><img src="pic/down.jpg" width="15" height="15"></button><span class="count">100</span><button class="vote" name="upvote"><img src="pic/up.png" width="16" height="16"></button>
                                 </div>
                             <div class="post_content">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing tempus. Cras a libero a tellus molestie volutpat ut et metus.Proin eget lorem metus. Proin sit amet sagittis libero. Ut egestas eu felis at varius. Praesent et erat in lacus pellentesque semper at mattis augue</p>
+							<p>Game of Thrones is an American fantasy drama television series created by David Benioff and D. B. Weiss. It is an adaptation of A Song of Ice and Fire, George R. R. Martin's series of fantasy novels</p>
                             </div>
                          </div>
                          
                             <footer class="content_footer">
                                 <div class="float_left">
-                                <span class="author_date_font">Author</<span><br />
-                                <span class="author_date_font">Date</span>
+                                <span class="author_date_font">Colin<span><br />
+                                <span class="author_date_font">2017/03/30</span>
                                 </div>
                                 
                                 <div class="save_share">
@@ -195,18 +197,18 @@
                         <article class="float_right">
                            <div class="post_box"> 
                                 <div class="post_header">
-                                    <h3 class="float_left">Content post</h3>
-                                    <h3 class="float_right"><button class="vote" name="downvote"><img src="pic/down.jpg" width="15" height="15"></button>500<button class="vote" name="upvote"><img src="pic/up.png" width="16" height="16"></button>
+                                    <h3 class="float_left">Lovely panda</h3>
+                                    <h3 class="float_right"><button class="vote down"><img src="pic/down.jpg" width="15" height="15"></button><span class="count">38</span><button class="vote" name="upvote"><img src="pic/up.png" width="16" height="16"></button>
                                 </div>
                             <div class="post_content">
-							<img src="pic/pic2.jpg" class="content_pic" name="content_pic" height="200" width="300"/>
+							<a href="pic/pic4.jpg" class="content_pic"  title="Lovely panda"><img src="pic/pic4.jpg" class="content_pic" name="content_pic" height="200" width="300" title="lovely panda"/></a>
                             </div>
                          </div>
                          
                             <footer class="content_footer">
                                 <div class="float_left">
-                                <span class="author_date_font">Author</<span><br />
-                                <span class="author_date_font">Date</span>
+                                <span class="author_date_font">Ruipeng<span><br />
+                                <span class="author_date_font">2017/03/22</span>
                                 </div>
                                 
                                 <div class="save_share">
@@ -219,19 +221,19 @@
                         <article class="float_right">
                            <div class="post_box"> 
                                 <div class="post_header">
-                                    <h3 class="float_left">Content post</h3>
-                                    <h3 class="float_right"><button class="vote" name="downvote"><img src="pic/down.jpg" width="15" height="15"></button>500<button class="vote" name="upvote"><img src="pic/up.png" width="16" height="16"></button>
+                                    <h3 class="float_left">London events</h3>
+                                    <h3 class="float_right"><button class="vote down"><img src="pic/down.jpg" width="15" height="15"></button><span class="count">35</span><button class="vote" name="upvote"><img src="pic/up.png" width="16" height="16"></button>
                                 </div>
                             <div class="post_content">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing tempus. Cras a libero a tellus molestie volutpat ut et metus.Proin eget lorem metus. Proin sit amet sagittis libero. Ut egestas eu felis at varius. Praesent et erat in lacus pellentesque semper at mattis augue</p>
+							<p>ECO FOLK 2017: Thames Talbot Land Trust benefit concert featuring Pete Denomme and the Cosmic Cowboys, The Marrieds, Brent Jones, Stacey Zegers, Broomsticks and Hammers, Westminster Park and Christine Newland, Sunday, 1 p.m. at Aeolian Hall, 795 Dundas St.;</p>
                             
                             </div>
                          </div>
                          
                             <footer class="content_footer">
                                 <div class="float_left">
-                                <span class="author_date_font">Author</<span><br />
-                                <span class="author_date_font">Date</span>
+                                <span class="author_date_font">Martin</<span><br />
+                                <span class="author_date_font">2017/02/03</span>
                                 </div>
                                 
                                 <div class="save_share">
@@ -244,18 +246,18 @@
                         <article class="float_right">
                            <div class="post_box"> 
                                 <div class="post_header">
-                                    <h3 class="float_left">Content post</h3>
-                                    <h3 class="float_right"><button class="vote" name="downvote"><img src="pic/down.jpg" width="15" height="15"></button>500<button class="vote" name="upvote"><img src="pic/up.png" width="16" height="16"></button>
+                                    <h3 class="float_left">Tech boom</h3>
+                                    <h3 class="float_right"><button class="vote down"><img src="pic/down.jpg" width="15" height="15"></button><span class="count">20</span><button class="vote" name="upvote"><img src="pic/up.png" width="16" height="16"></button>
                                 </div>
                             <div class="post_content">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing tempus. Cras a libero a tellus molestie volutpat ut et metus.Proin eget lorem metus. Proin sit amet sagittis libero. Ut egestas eu felis at varius. Praesent et erat in lacus pellentesque semper at mattis augue</p>
+							<p>A new report is optimistic the tech boom will reduce downtown London's chronically high office vacancy rate.</p>
                             </div>
                          </div>
                          
                             <footer class="content_footer">
                                 <div class="float_left">
-                                <span class="author_date_font">Author</<span><br />
-                                <span class="author_date_font">Date</span>
+                                <span class="author_date_font">Sara<span><br />
+                                <span class="author_date_font">2017/01/20</span>
                                 </div>
                                 
                                 <div class="save_share">
@@ -263,13 +265,41 @@
                                     <button class="save_share_botton" name="share">SHARE</button>
                                 </div>
                             </footer>
-                        </article>
-                        
+                        </article>        
                     </div>
 					
                 </div>
-				
             </div>
+			<div id='nav_bar'>  
+				
+				<div id='account'>
+				<img src="pic/cancel.png" id="cancel" class="float_right" height="20" width="20"/>
+				<img src="pic/avator.png" class="float-left img-circle" height="70" width="70" />
+				<div>				
+				<span class="avator_name" class="float-left">HolyMolyACOW</span>
+				</div>
+				</div>
+				<div id='subreddits_list'>
+					<table>
+						<tr><a href="https://www.reddit.com/r/Art/"><img src="pic/reddit-logo.png" height="40" width="40"><span>ART</span></a></tr></br>
+						<tr><a href="https://www.reddit.com/r/blog/"><img src="pic/reddit-logo.png" height="40" width="40"><span>BLOGS</span></a></tr></br>
+						<tr><a href="https://www.reddit.com/r/funny/"><img src="pic/reddit-logo.png" height="40" width="40"><span>FUNNY</span></a></tr></br>
+						<tr><a href="https://www.reddit.com/r/Jokes/"><img src="pic/reddit-logo.png" height="40" width="40"><span>JOKES</span></a></tr></br>
+						<tr><a href="https://www.reddit.com/r/movies/"><img src="pic/reddit-logo.png" height="40" width="40"><span>MOVIES</span></a></tr></br>
+						<tr><a href="https://www.reddit.com/r/gaming/"><img src="pic/reddit-logo.png" height="40" width="40"><span>GAMING</span></a></tr></br>
+						<tr><a href="https://www.reddit.com/r/Music/"><img src="pic/reddit-logo.png" height="40" width="40"><span>MUSIC</span></a></tr></br>
+						<tr><a href="https://www.reddit.com/r/news/"><img src="pic/reddit-logo.png" height="40" width="40"><span>NEWS</span></a></tr></br>
+						<tr><a href="https://www.reddit.com/r/videos/"><img src="pic/reddit-logo.png" height="40" width="40"><span>VIDEOS</span></a></tr></br>
+					</table>
+					</div>
+				<div id='gold_goal'>
+					<div class="progress">
+						<b class="progress__bar">
+						<span class="progress__text">Daily Gold: <em>0%</em></span>
+					</div>        
+				</div>
+				
+			</div> 
     </body>
 				
 	</html>
