@@ -1,7 +1,8 @@
 import React from 'react';
 import Moment from 'moment';
 
-import Post from './Post';
+import PostFilters from './PostFilters';
+import Post from './Post/Post';
 import Search from './Search';
 
 let testImage = require('../../../images/cat.jpg');
@@ -15,17 +16,26 @@ class FrontPageViewComponent extends React.Component {
   const styles = {
     wrapper: {
       display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      marginTop: '20px'
+    },
+    postWrapper: {
+      display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
       flexWrap: 'wrap',
-      margin: '5% 20% 5% 20%'
+      margin: '10px 20% 10px 20%'
     }
   };
     return (
       <div style={styles.wrapper}>
-        {this.state.posts.map((post, key) => {
-          return <Post key={key} {...post}></Post>;
-        })}
+        <PostFilters></PostFilters>
+        <div style={styles.postWrapper}>
+          {this.state.posts.map((post, key) => {
+            return <Post key={key} {...post}></Post>;
+          })}
+        </div>
       </div>
     );
   }

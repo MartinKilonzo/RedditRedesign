@@ -52,11 +52,11 @@ class VotingComponent extends React.Component {
     };
     return (
       <div style={styles.wrapper}>
-        <IconButton onClick={this.upvote} style={styles.button} tooltip="Upvote" tooltipPosition="top-center" touch={true}>
+        <IconButton onTouchTap={this.upvote} style={styles.button} tooltip="Upvote" tooltipPosition="top-center" touch={true}>
           <KeyboardArrowUp hoverColor="green" color={this.state.upvoteColor}></KeyboardArrowUp>
         </IconButton>
         <p>{this.state.votes}</p>
-        <IconButton onClick={this.downvote} style={styles.button} tooltip="Downvote" tooltipPosition="top-center" touch={true}>
+        <IconButton onTouchTap={this.downvote} style={styles.button} tooltip="Downvote" tooltipPosition="top-center" touch={true}>
           <KeyboardArrowDown hoverColor="red" color={this.state.downvoteColor}></KeyboardArrowDown>
         </IconButton>
       </div>
