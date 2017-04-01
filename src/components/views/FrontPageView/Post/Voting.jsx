@@ -6,7 +6,7 @@ import KeyboardArrowDown from 'react-material-icons/icons/hardware/keyboard-arro
 class VotingComponent extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props;
+    this.state = {...props};
   }
   upvote = () => {
     let newVotes = this.state.votes;
@@ -14,14 +14,13 @@ class VotingComponent extends React.Component {
     // If the upvote button is active, undo it
     if (this.state.upvoteColor === 'green') {
       newVotes--;
-      newColor = undefined;
-    }
-    // If the downvote button is active, undo it and apply an upvote
-    else if (this.state.downvoteColor === 'red')
-      newVotes = newVotes + 2;
-    // Otherwise, apply the upvote
+      newColor =// If the downvote button is active, undo it and apply an upvote
+      undefined;
+    } else if (this.state.downvoteColor === 'red')
+      newVotes = newVotes + 2; // Otherwise, apply the upvote
     else
       newVotes--;
+
     // Save changes to state
     this.setState({votes: newVotes, downvoteColor: undefined, upvoteColor: newColor});
   }
@@ -31,14 +30,13 @@ class VotingComponent extends React.Component {
     // If the downvote button is active, undo it
     if (this.state.downvoteColor === 'red') {
       newVotes++;
-      newColor = undefined;
-    }
-    // If the upvote button is active, undo it and apply an upvote
-    else if (this.state.upvoteColor === 'green')
-      newVotes = newVotes - 2;
-    // Otherwise, apply the upvote
+      newColor =// If the upvote button is active, undo it and apply an upvote
+      undefined;
+    } else if (this.state.upvoteColor === 'green')
+      newVotes = newVotes - 2; // Otherwise, apply the upvote
     else
       newVotes--;
+
     // Save changes to state
     this.setState({votes: newVotes, downvoteColor: newColor, upvoteColor: undefined});
   }

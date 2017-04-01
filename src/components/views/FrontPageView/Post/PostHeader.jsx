@@ -2,7 +2,6 @@ import React from 'react';
 
 import Voting from './Voting';
 
-
 class PostHeaderComponent extends React.Component {
   constructor(props) {
     super(props);
@@ -38,7 +37,7 @@ class PostHeaderComponent extends React.Component {
           <p style={styles.details}>{this.props.subreddit}</p>
           <h2 style={styles.details}>{this.props.title}</h2>
         </div>
-        <Voting {...this.state}></Voting>
+        <Voting {...this.props}></Voting>
       </div>
     );
   }

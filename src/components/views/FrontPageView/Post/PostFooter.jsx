@@ -6,17 +6,18 @@ import Moment from 'moment';
 class PostFooterComponent extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {...props};
-    this.state.autoHideDuration = 2000;
-    this.state.snackbar = false;
-    this.state.message = '';
+    this.state = {
+      ...props,
+      autoHideDuration: 2000,
+      snackbar: false,
+      message: ''
+    };
   }
   savePost = (event) => {
     const message = 'Post saved';
     this.setState({message, snackbar: true});
   }
   sharePost = (event) => {
-    console.log(event.target);
     const message = `Copy link: ${this.state.link}`;
     this.setState({message, snackbar: true, autoHideDuration: 10000});
   }
@@ -52,7 +53,7 @@ class PostFooterComponent extends React.Component {
         lineHeight: '9pt'
       },
       details: {
-        margin: '0 0 0 0'
+        margin: '0'
       },
       buttonWrapper: {
         display: 'flex',
@@ -70,12 +71,7 @@ class PostFooterComponent extends React.Component {
           <FlatButton label="save" primary={true} onTouchTap={this.savePost}></FlatButton>
           <FlatButton label="share" primary={true} onTouchTap={this.sharePost}></FlatButton>
         </div>
-        <Snackbar open={this.state.snackbar}
-          message={this.state.message}
-          action="undo"
-          autoHideDuration={this.state.autoHideDuration}
-          onActionTouchTap={this.handleSnackbarAction}
-          onRequestClose={this.handleSnackbarClose}></Snackbar>
+        <Snackbar open={this.state.snackbar} message={this.state.message} action="undo" autoHideDuration={this.state.autoHideDuration} onActionTouchTap={this.handleSnackbarAction} onRequestClose={this.handleSnackbarClose}></Snackbar>
       </div>
     );
   }

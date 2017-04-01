@@ -22,8 +22,6 @@ class AppComponent extends React.Component {
     this.setState({viewNav: !this.state.viewNav});
   }
   render() {
-    // const childrenWithProps = React.Children.map(this.props.children, (child) => React.cloneElement(child, {userData: this.props.userData}));
-
     return (
       <MuiThemeProvider muiTheme={getMuiTheme()}>
         <div>

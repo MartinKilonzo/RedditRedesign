@@ -3,9 +3,7 @@ import React from 'react';
 class PostContent extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-
-    };
+    this.state = {};
   }
   render() {
     const styles = {
@@ -22,7 +20,7 @@ class PostContent extends React.Component {
     };
     return (
       <div style={styles.wrapper}>
-        <img style={styles.image} src={this.props.content} alt="Yeoman Generator" />
+        <img style={styles.image} src={this.props.content} alt="Yeoman Generator"/>
       </div>
     );
   }
