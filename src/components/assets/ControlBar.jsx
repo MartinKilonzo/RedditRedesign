@@ -13,21 +13,20 @@ class ControlBarComponent extends React.Component {
     super(props);
     this.state = {
       ...props,
-      dialog: false
+      dialog: false,
+      searchQuery: 'Search'
     };
   }
   handleSearchTouchTap = () => {
-    console.log('effect');
-    this.setState({dialog: true});
-  }
-  handleSearch = () => {
-    console.log('search');
+    const searchQuery = this.state.searchQuery ===  'Search' || 'search' ? '' : this.state.searchQuery;
+    this.setState({dialog: true, searchQuery});
   }
   handleSearchChange = (event) => {
     this.setState({searchQuery: event.target.value});
   }
   handleDialoglose = () => {
-    this.setState({dialog: false});
+    const searchQuery = this.state.searchQuery === '' ? 'Search' : this.state.searchQuery;
+    this.setState({dialog: false, searchQuery});
   }
   render() {
     const styles = {
@@ -67,21 +66,21 @@ class ControlBarComponent extends React.Component {
         bottom: 18
       }
     };
+
     return (
       <div style={styles.wrapper}>
         <Dialog
-          actions={this.state.handleSearch}
           modal={false}
           contentStyle={styles.dialogContents}
           bodyStyle={styles.dialogBody}
           open={this.state.dialog}
           onRequestClose={this.handleDialoglose}>
-          <TextField style={styles.searchField} inputStyle={styles.searchText} hintStyle={styles.hintText} hintText="Search" onChange={this.handleSearchChange} fullWidth></TextField>
+          <TextField style={styles.searchField} inputStyle={styles.searchText} hintStyle={styles.hintText} hintText="Search" onChange={this.handleSearchChange} value={this.state.searchQuery} fullWidth></TextField>
         </Dialog>
         <AppBar title="Reddit"
           iconElementLeft={<IconButton><ExpandMore></ExpandMore></IconButton>}
           iconElementRight={
-            <FlatButton style={styles.searchButton} labelStyle={styles.searchLabel} label="Search" icon={<Search></Search>}
+            <FlatButton style={styles.searchButton} labelStyle={styles.searchLabel} label={this.state.searchQuery} icon={<Search></Search>}
               hoverColor="transparent"
               disableTouchRipple
               onTouchTap={this.handleSearchTouchTap}>
