@@ -10,26 +10,26 @@ import Nav from './Nav.jsx';
 import ControlBar from './ControlBar';
 import RedditData from '../../actions/RedditData';
 
-
 injectTapEventPlugin();
 class AppComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      viewNav: false
     };
   }
+  toggleNav = () => {
+    this.setState({viewNav: !this.state.viewNav});
+  }
   render() {
-    let viewNav = false;
-
-    const childrenWithProps = React.Children.map(this.props.children, (child) => React.cloneElement(child, {userData: this.props.userData}));
+    // const childrenWithProps = React.Children.map(this.props.children, (child) => React.cloneElement(child, {userData: this.props.userData}));
 
     return (
       <MuiThemeProvider muiTheme={getMuiTheme()}>
         <div>
-          <ControlBar></ControlBar>
-          {viewNav && <Nav {...this.props}></Nav>}
-          {childrenWithProps}
+          <ControlBar toggleNav={this.toggleNav}></ControlBar>
+          <Nav open={this.state.viewNav} toggleNav={this.toggleNav} subredditList={this.props.subredditList}></Nav>
+          {this.props.children}
         </div>
       </MuiThemeProvider>
     );

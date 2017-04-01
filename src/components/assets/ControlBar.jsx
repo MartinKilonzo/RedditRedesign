@@ -77,7 +77,7 @@ class ControlBarComponent extends React.Component {
           onRequestClose={this.handleDialoglose}>
           <TextField style={styles.searchField} inputStyle={styles.searchText} hintStyle={styles.hintText} hintText="Search" onChange={this.handleSearchChange} value={this.state.searchQuery} fullWidth></TextField>
         </Dialog>
-        <AppBar title="Reddit"
+        <AppBar title="Reddit" onLeftIconButtonTouchTap={this.props.toggleNav.bind(this, undefined)}
           iconElementLeft={<IconButton><ExpandMore></ExpandMore></IconButton>}
           iconElementRight={
             <FlatButton style={styles.searchButton} labelStyle={styles.searchLabel} label={this.state.searchQuery} icon={<Search></Search>}
