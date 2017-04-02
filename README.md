@@ -25,7 +25,7 @@ You are now ready to begin installing the program!
 2. Clone the repo
 
   ``` bash
-  $ git clone https://github.com/MartinKilonzo/RedditRedesign
+  $ git clone https://github.com/MartinKilonzo/RedditRedesign/tree/reactDesign
   ```
 3. Install dependencies:
 
@@ -37,8 +37,9 @@ You are now ready to begin installing the program!
   ```bash
   $ npm run-script serve:dist
   ```
-5. You will need to use a browser that has [CORS](http://stackoverflow.com/a/28848096) enabled.
-On Windows, with Chrome, try entering this into the run window:
+5. You will need to use a browser that has [CORS](http://stackoverflow.com/a/28848096) enabled.  
+The easiest way is to download this chrome extension: [Allow CORS](https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi?hl=en-US)  
+Alternatively, for Windows users, with Chrome, try entering this into the run window:
   ```run.exe
   chrome.exe --user-data-dir="C:/Chrome dev session" --disable-web-security
   ```
