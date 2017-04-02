@@ -1,4 +1,5 @@
 import React from 'react';
+import {red500, grey800, grey700} from 'material-ui/styles/colors'
 import AppBar from 'material-ui/AppBar';
 import Dialog from 'material-ui/Dialog';
 import IconButton from 'material-ui/IconButton';
@@ -7,6 +8,7 @@ import ExpandMore from 'react-material-icons/icons/navigation/menu';
 import Search from 'react-material-icons/icons/action/search';
 import TextField from 'material-ui/TextField';
 
+import redditLogo from '../../images/reddit-logo.png'
 
 class ControlBarComponent extends React.Component {
   constructor(props) {
@@ -33,6 +35,12 @@ class ControlBarComponent extends React.Component {
       wrapper: {
         height: '100%',
         width: '100%'
+      },
+      appBar: {
+        backgroundColor: grey800
+      },
+      logo: {
+        height: '46px'
       },
       searchButton: {
         cursor: 'text'
@@ -77,8 +85,15 @@ class ControlBarComponent extends React.Component {
           onRequestClose={this.handleDialoglose}>
           <TextField style={styles.searchField} inputStyle={styles.searchText} hintStyle={styles.hintText} hintText="Search" onChange={this.handleSearchChange} value={this.state.searchQuery} fullWidth></TextField>
         </Dialog>
-        <AppBar title="Reddit" onLeftIconButtonTouchTap={this.props.toggleNav.bind(this, undefined)}
-          iconElementLeft={<IconButton><ExpandMore></ExpandMore></IconButton>}
+        <AppBar style={styles.appBar} onLeftIconButtonTouchTap={this.props.toggleNav.bind(this, undefined)}
+          iconElementLeft={
+            <div>
+            <IconButton>
+              <ExpandMore color='white'></ExpandMore>
+            </IconButton>
+            <img style={styles.logo} src={redditLogo}></img>
+            </div>
+          }
           iconElementRight={
             <FlatButton style={styles.searchButton} labelStyle={styles.searchLabel} label={this.state.searchQuery} icon={<Search></Search>}
               hoverColor="transparent"

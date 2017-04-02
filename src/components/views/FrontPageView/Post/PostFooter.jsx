@@ -18,7 +18,7 @@ class PostFooterComponent extends React.Component {
     this.setState({message, snackbar: true});
   }
   sharePost = (event) => {
-    const message = `Copy link: ${this.state.link}`;
+    const message = `Copy link: ${this.state.content}`;
     this.setState({message, snackbar: true, autoHideDuration: 10000});
   }
   handleSnackbarAction = () => {
@@ -64,8 +64,8 @@ class PostFooterComponent extends React.Component {
     return (
       <div style={styles.wrapper}>
         <div style={styles.detailsWrapper}>
-          <p style={styles.details}>{this.props.author}</p>
-          <p style={styles.details}>{this.props.date.format('d MMMM')}</p>
+          <p style={styles.details}>By: {this.props.author}</p>
+          <p style={styles.details}>{this.props.timeString}</p>
         </div>
         <div style={styles.buttonWrapper}>
           <FlatButton label="save" primary={true} onTouchTap={this.savePost}></FlatButton>
