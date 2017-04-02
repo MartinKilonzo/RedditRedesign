@@ -1,5 +1,16 @@
 # Reddit, Redesigned
 
+![Main Page](/preview/reddit_main_top.JPG)
+
+![Main Page](/preview/reddit_main_best.JPG)
+Content-focused browsing experience.
+
+![Navigation](/preview/reddit_nav.JPG)
+Cleaner navigation menu.
+
+![Search](/preview/reddit_search.JPG)
+Modernized, responsive search feature.
+
 ## Installation
 
 ### Setup
