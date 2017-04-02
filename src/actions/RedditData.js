@@ -1,6 +1,7 @@
 import Moment from 'moment';
 
 
+const PROXY = 'https://cors-anywhere.herokuapp.com/';
 const REDDIT_URL = 'https://www.reddit.com/';
 
 
@@ -49,22 +50,9 @@ const Subreddit = function Subreddit(subreddit) {
 };
 
 
-const makeRequest = (method, url, callback) => {
+const makeRequest = (method, url) => {
   const xhr = new XMLHttpRequest();
-  xhr.open(method, url);
-  xhr.onload = () => {
-    callback(null, xhr.response);
-  };
-  xhr.onerror = () => {
-    callback(xhr.response);
-  };
-  xhr.send()
-};
-
-
-const makeSyncRequest = (method, url) => {
-  const xhr = new XMLHttpRequest();
-  xhr.open(method, url, false);
+  xhr.open(method, PROXY + url, false);
   xhr.send(null);
   return xhr.responseText;
 }
@@ -78,26 +66,8 @@ const RedditData = function RedditData() {
     const views = ['', 'rising', 'top'];
     views.forEach((view) => {
       const data = [];
-      // makeRequest('GET', REDDIT_URL, (err, res) => {
-      //   if (err) ;
-      //     return;
-      //   }
-      //     // Parse data
-      //     const parser = new DOMParser();
-      //     const htmlDoc = parser.parseFromString(res, "text/html");
-      //
-      //     const htmlPosts = htmlDoc.getElementsByClassName('thing');
-      //     let posts = [];
-      //     for (var post of htmlPosts)
-      //       posts.push(post);
-      //
-      //
-      //     posts.forEach((post) => {
-      //       data.push(new Post(post));
-      //     });
-      // });
       const parser = new DOMParser();
-      const htmlDoc = parser.parseFromString(makeSyncRequest('GET', REDDIT_URL + view), 'text/html');
+      const htmlDoc = parser.parseFromString(makeRequest('GET', REDDIT_URL + view), 'text/html');
       const htmlPosts = htmlDoc.getElementsByClassName('thing');
       let posts = [];
       for (var post of htmlPosts)
@@ -112,7 +82,7 @@ const RedditData = function RedditData() {
 
     const data = [];
     const parser = new DOMParser();
-    const htmlDoc = parser.parseFromString(makeSyncRequest('GET', REDDIT_URL), 'text/html');
+    const htmlDoc = parser.parseFromString(makeRequest('GET', REDDIT_URL), 'text/html');
     const htmlSubreddits = htmlDoc.getElementsByClassName('drop-choices srdrop');
     let subreddits = [];
     for (var subredit of htmlSubreddits[0].children)
