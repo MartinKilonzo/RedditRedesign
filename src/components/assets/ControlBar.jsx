@@ -1,5 +1,5 @@
 import React from 'react';
-import {red500, grey800, grey700} from 'material-ui/styles/colors'
+import {grey800} from 'material-ui/styles/colors'
 import AppBar from 'material-ui/AppBar';
 import Dialog from 'material-ui/Dialog';
 import IconButton from 'material-ui/IconButton';
@@ -64,7 +64,7 @@ class ControlBarComponent extends React.Component {
         padding: '0px 24px 0px 24px'
       },
       searchField: {
-        height: 64,
+        height: 64
       },
       searchText: {
         textAlign: 'right'

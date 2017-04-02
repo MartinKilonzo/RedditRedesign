@@ -56,7 +56,7 @@ const makeRequest = (method, url, callback) => {
 };
 
 
-const makeSyncRequest = (method, url, callback) => {
+const makeSyncRequest = (method, url) => {
   const xhr = new XMLHttpRequest();
   xhr.open(method, url, false);
   xhr.send( null );
@@ -87,7 +87,7 @@ const RedditData = function RedditData() {
     //     });
     // });
     const parser = new DOMParser();
-    const htmlDoc = parser.parseFromString(makeSyncRequest('GET', REDDIT_URL), "text/html");
+    const htmlDoc = parser.parseFromString(makeSyncRequest('GET', REDDIT_URL), 'text/html');
     const htmlPosts = htmlDoc.getElementsByClassName('thing');
     let posts = [];
     for (var post of htmlPosts)

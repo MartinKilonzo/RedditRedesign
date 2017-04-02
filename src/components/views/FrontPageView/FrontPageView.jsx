@@ -2,7 +2,6 @@ import React from 'react';
 
 import PostFilters from './PostFilters';
 import Post from './Post/Post';
-import Search from './Search';
 
 class FrontPageViewComponent extends React.Component {
   constructor(props) {

@@ -1,7 +1,6 @@
 import React from 'react';
 import FlatButton from 'material-ui/FlatButton';
 import Snackbar from 'material-ui/Snackbar';
-import Moment from 'moment';
 
 class PostFooterComponent extends React.Component {
   constructor(props) {
@@ -13,11 +12,11 @@ class PostFooterComponent extends React.Component {
       message: ''
     };
   }
-  savePost = (event) => {
+  savePost = () => {
     const message = 'Post saved';
     this.setState({message, snackbar: true});
   }
-  sharePost = (event) => {
+  sharePost = () => {
     const message = `Copy link: ${this.state.content}`;
     this.setState({message, snackbar: true, autoHideDuration: 10000});
   }

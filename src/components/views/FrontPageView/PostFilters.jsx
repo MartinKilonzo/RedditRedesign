@@ -16,7 +16,7 @@ class PostFiltersComponent extends React.Component {
     const styles = {
       wrapper: {
         display: 'flex',
-        justifyContent: 'center',
+        justifyContent: 'center'
       },
       button: {
         margin: '0px 10px'
