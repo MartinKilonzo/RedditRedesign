@@ -43,6 +43,12 @@ const Post = function Post(post) {
 };
 
 
+const Subreddit = function Subreddit(subreddit) {
+  this.link = subreddit.href;
+  this.title = subreddit.innerText;
+};
+
+
 const makeRequest = (method, url, callback) => {
   const xhr = new XMLHttpRequest();
   xhr.open(method, url);
@@ -64,7 +70,10 @@ const makeSyncRequest = (method, url) => {
 }
 
 const RedditData = function RedditData() {
-  const ret = [];
+  const ret = {
+    posts: [],
+    subreddits: []
+  };
   this.getData = () => {
     const views = ['', 'rising', 'top'];
     views.forEach((view) => {
@@ -98,8 +107,22 @@ const RedditData = function RedditData() {
         data.push(new Post(post));
       });
 
-      ret.push(data);
+      ret.posts.push(data);
     });
+
+    const data = [];
+    const parser = new DOMParser();
+    const htmlDoc = parser.parseFromString(makeSyncRequest('GET', REDDIT_URL), 'text/html');
+    const htmlSubreddits = htmlDoc.getElementsByClassName('drop-choices srdrop');
+    let subreddits = [];
+    for (var subredit of htmlSubreddits[0].children)
+      subreddits.push(subredit);
+
+    subreddits.forEach((subredit) => {
+      data.push(new Subreddit(subredit));
+    });
+
+    ret.subreddits = data;
     return ret;
   };
 };

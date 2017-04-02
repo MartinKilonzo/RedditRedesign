@@ -30,7 +30,8 @@ class AppComponent extends React.Component {
     };
   }
   componentWillMount = () => {
-      this.setState({posts: new RedditData().getData()});
+    const data = new RedditData().getData();
+      this.setState({posts: data.posts, subreddits: data.subreddits});
   }
   toggleNav = () => {
     this.setState({
@@ -38,12 +39,11 @@ class AppComponent extends React.Component {
     });
   }
   render() {
-    console.log(this.state.posts)
     return (
       <MuiThemeProvider muiTheme={theme}>
         <div>
           <ControlBar toggleNav={this.toggleNav}></ControlBar>
-          <Nav open={this.state.viewNav} toggleNav={this.toggleNav} subreddits={this.props.subreddits}></Nav>
+          <Nav open={this.state.viewNav} toggleNav={this.toggleNav} subreddits={this.state.subreddits}></Nav>
           <FrontPage posts={this.state.posts}></FrontPage>
         </div>
       </MuiThemeProvider>
@@ -51,43 +51,6 @@ class AppComponent extends React.Component {
   }
 }
 
-AppComponent.defaultProps = {
-  subreddits: [
-    {
-      title: 'TIFU',
-      link: 'testLink'
-    }, {
-      title: 'TIFU',
-      link: 'testLink'
-    }, {
-      title: 'TIFU',
-      link: 'testLink'
-    }, {
-      title: 'TIFU',
-      link: 'testLink'
-    }, {
-      title: 'TIFU',
-      link: 'testLink'
-    }, {
-      title: 'TIFU',
-      link: 'testLink'
-    }, {
-      title: 'TIFU',
-      link: 'testLink'
-    }, {
-      title: 'TIFU',
-      link: 'testLink'
-    }, {
-      title: 'TIFU',
-      link: 'testLink'
-    }, {
-      title: 'TIFU',
-      link: 'testLink'
-    }, {
-      title: 'TIFU',
-      link: 'testLink'
-    }
-  ]
-};
+AppComponent.defaultProps = {};
 
 export default AppComponent;
