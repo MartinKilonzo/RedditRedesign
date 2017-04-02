@@ -25,10 +25,8 @@ $(document).ready(function()
     } 
 	
 	});
-	$(".upvote").click(function(){
-		var count = parseInt($("~ .count", this).text());
-		var count = count + 1;
-       $("~ .count", this).text(count);
+	$('[name="upvote"]').click(function(){
+		alert("Login to use upvote");
 	});
 	
 	//分享文件
