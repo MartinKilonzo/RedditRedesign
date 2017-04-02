@@ -5,7 +5,7 @@ import Voting from './Voting';
 class PostHeaderComponent extends React.Component {
   constructor(props) {
     super(props);
-    this.state = props;
+    this.state = {};
   }
   render() {
     const styles = {

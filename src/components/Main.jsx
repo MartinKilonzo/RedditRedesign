@@ -12,7 +12,6 @@ import ControlBar from './assets/ControlBar';
 import FrontPage from './views/FrontPageView/FrontPageView';
 import RedditData from '../actions/RedditData';
 
-
 const theme = getMuiTheme({
   palette: {
     primary1Color: deepOrange500,
@@ -31,7 +30,17 @@ class AppComponent extends React.Component {
     };
   }
   componentWillMount = () => {
-    this.setState({posts: new RedditData().getData()});
+    new RedditData().getData((res, err) => {
+      if (err) {
+        console.error(err);
+        return;
+      }
+      this.setState({posts: res}, () => {
+        this.setState(this.state, () => {
+          console.log(this.state.posts)
+        });
+      });
+    });
   }
   toggleNav = () => {
     this.setState({
@@ -50,7 +59,6 @@ class AppComponent extends React.Component {
     );
   }
 }
-
 
 AppComponent.defaultProps = {
   subreddits: [
@@ -87,7 +95,8 @@ AppComponent.defaultProps = {
     }, {
       title: 'TIFU',
       link: 'testLink'
-    }]
+    }
+  ]
 };
 
 export default AppComponent;

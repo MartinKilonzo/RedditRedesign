@@ -39,7 +39,7 @@ const Post = function Post(post) {
   this.timeString = post.getElementsByTagName('time')[0].innerText;
 
   // Get vote data
-  this.votes = post.getElementsByClassName('unvoted')[1].title;
+  this.votes = parseInt(post.getElementsByClassName('unvoted')[1].title);
 };
 
 
@@ -59,50 +59,39 @@ const makeRequest = (method, url, callback) => {
 const makeSyncRequest = (method, url) => {
   const xhr = new XMLHttpRequest();
   xhr.open(method, url, false);
-  xhr.send( null );
+  xhr.send(null);
   return xhr.responseText;
 }
 
 const RedditData = function RedditData() {
   const ret = [];
-  this.getData = () => {
+  this.getData = (callback) => {
     const views = ['', 'rising', 'top'];
     views.forEach((view) => {
+      const data = [];
+      makeRequest('GET', REDDIT_URL + view, (err, res) => {
+        if (err) {
+          console.error(err);
+          return;
+        }
+        // Parse data
+        const parser = new DOMParser();
+        const htmlDoc = parser.parseFromString(res, "text/html");
 
-          const data = [];
-          // makeRequest('GET', REDDIT_URL, (err, res) => {
-          //   if (err) {
-          //     console.error(err);
-          //     return;
-          //   }
-          //     // Parse data
-          //     const parser = new DOMParser();
-          //     const htmlDoc = parser.parseFromString(res, "text/html");
-          //
-          //     const htmlPosts = htmlDoc.getElementsByClassName('thing');
-          //     let posts = [];
-          //     for (var post of htmlPosts)
-          //       posts.push(post);
-          //
-          //
-          //     posts.forEach((post) => {
-          //       data.push(new Post(post));
-          //     });
-          // });
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(makeSyncRequest('GET', REDDIT_URL + view), 'text/html');
-          const htmlPosts = htmlDoc.getElementsByClassName('thing');
-          let posts = [];
-          for (var post of htmlPosts)
-            posts.push(post);
+        const htmlPosts = htmlDoc.getElementsByClassName('thing');
+        let posts = [];
+        for (var post of htmlPosts)
+          posts.push(post);
 
-          posts.forEach((post) => {
-            data.push(new Post(post));
-          });
-          ret.push(data);
+
+        posts.forEach((post) => {
+          data.push(new Post(post));
+        });
+      });
+      ret.push(data);
     });
-      return ret;
-    };
+    callback(ret);
+  };
 };
 
 export default RedditData;
