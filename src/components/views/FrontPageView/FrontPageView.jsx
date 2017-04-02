@@ -6,7 +6,12 @@ import Post from './Post/Post';
 class FrontPageViewComponent extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      view: 0
+    };
+  }
+  setView = (view) => {
+    this.setState({view});
   }
   render() {
     const styles = {
@@ -24,11 +29,12 @@ class FrontPageViewComponent extends React.Component {
         margin: '10px 10% 10px 10%'
       }
     };
+    const posts = this.props.posts[this.state.view];
     return (
       <div style={styles.wrapper}>
-        <PostFilters></PostFilters>
+        <PostFilters setView={this.setView}></PostFilters>
         <div style={styles.postWrapper}>
-          {this.props.posts.map((post, key) => {
+          {posts.map((post, key) => {
             return <Post key={key} {...post}></Post>;
           })}
         </div>

@@ -1,7 +1,7 @@
 import Moment from 'moment';
 
 
-const REDDIT_URL = 'https://www.reddit.com';
+const REDDIT_URL = 'https://www.reddit.com/';
 
 
 
@@ -64,40 +64,45 @@ const makeSyncRequest = (method, url) => {
 }
 
 const RedditData = function RedditData() {
-
+  const ret = [];
   this.getData = () => {
-    const data = [];
-    // makeRequest('GET', REDDIT_URL, (err, res) => {
-    //   if (err) {
-    //     console.error(err);
-    //     return;
-    //   }
-    //     // Parse data
-    //     const parser = new DOMParser();
-    //     const htmlDoc = parser.parseFromString(res, "text/html");
-    //
-    //     const htmlPosts = htmlDoc.getElementsByClassName('thing');
-    //     let posts = [];
-    //     for (var post of htmlPosts)
-    //       posts.push(post);
-    //
-    //
-    //     posts.forEach((post) => {
-    //       data.push(new Post(post));
-    //     });
-    // });
-    const parser = new DOMParser();
-    const htmlDoc = parser.parseFromString(makeSyncRequest('GET', REDDIT_URL), 'text/html');
-    const htmlPosts = htmlDoc.getElementsByClassName('thing');
-    let posts = [];
-    for (var post of htmlPosts)
-      posts.push(post);
+    const views = ['', 'rising', 'top'];
+    views.forEach((view) => {
 
-    posts.forEach((post) => {
-      data.push(new Post(post));
+          const data = [];
+          // makeRequest('GET', REDDIT_URL, (err, res) => {
+          //   if (err) {
+          //     console.error(err);
+          //     return;
+          //   }
+          //     // Parse data
+          //     const parser = new DOMParser();
+          //     const htmlDoc = parser.parseFromString(res, "text/html");
+          //
+          //     const htmlPosts = htmlDoc.getElementsByClassName('thing');
+          //     let posts = [];
+          //     for (var post of htmlPosts)
+          //       posts.push(post);
+          //
+          //
+          //     posts.forEach((post) => {
+          //       data.push(new Post(post));
+          //     });
+          // });
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(makeSyncRequest('GET', REDDIT_URL + view), 'text/html');
+          const htmlPosts = htmlDoc.getElementsByClassName('thing');
+          let posts = [];
+          for (var post of htmlPosts)
+            posts.push(post);
+
+          posts.forEach((post) => {
+            data.push(new Post(post));
+          });
+          ret.push(data);
     });
-    return data;
-  }
+      return ret;
+    };
 };
 
 export default RedditData;

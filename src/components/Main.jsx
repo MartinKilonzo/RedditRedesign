@@ -26,14 +26,12 @@ class AppComponent extends React.Component {
     super(props);
     this.state = {
       viewNav: false,
-      posts: []
+      posts: [],
+      view: 0
     };
   }
-  componentDidMount = () => {
+  componentWillMount = () => {
     this.setState({posts: new RedditData().getData()});
-  }
-  getRedditData = () => {
-    return new RedditData().getData();
   }
   toggleNav = () => {
     this.setState({

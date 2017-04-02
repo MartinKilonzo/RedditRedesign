@@ -10,7 +10,9 @@ class PostFiltersComponent extends React.Component {
     };
   }
   handleTouchTap = (buttonID) => {
-    this.setState({active: buttonID});
+    this.setState({active: buttonID}, () => {
+      this.props.setView(buttonID);
+    });
   }
   render() {
     const styles = {

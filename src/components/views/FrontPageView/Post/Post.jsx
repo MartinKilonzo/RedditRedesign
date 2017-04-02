@@ -34,9 +34,9 @@ class PostComponent extends React.Component {
     return (
       <Paper style={styles.tile} zDepth={2}>
         <div style={styles.wrapper}>
-          <PostHeader {...this.state}></PostHeader>
-          <PostContent {...this.state}></PostContent>
-          <PostFooter {...this.state}></PostFooter>
+          <PostHeader {...this.props}></PostHeader>
+          <PostContent {...this.props}></PostContent>
+          <PostFooter {...this.props}></PostFooter>
         </div>
       </Paper>
     );
