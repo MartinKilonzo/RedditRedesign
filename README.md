@@ -38,7 +38,8 @@ You are now ready to begin installing the program!
   $ npm run-script serve:dist
   ```
 5. You will need to use a browser that has [CORS](http://stackoverflow.com/a/28848096) enabled.
-On Windows, with Chrome, try entering this into the run window:
+The easiest way is to download this chrome extension: [Allow CORS](https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi?hl=en-US)
+Otherwuse, on Windows, with Chrome, try entering this into the run window:
   ```run.exe
   chrome.exe --user-data-dir="C:/Chrome dev session" --disable-web-security
   ```
