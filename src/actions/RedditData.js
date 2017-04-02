@@ -13,7 +13,6 @@ const Post = function Post(post) {
   // Get content data
   const content = post.getElementsByClassName('title')[1];
   this.title = content.innerText;
-  this.postLink = content.href;
   this.content = post.getAttribute('data-url');
   this.contentHost = content.host;
 
@@ -24,6 +23,7 @@ const Post = function Post(post) {
   else
     this.thumbnail = a[0].children[0].getAttribute('src');
 
+    this.postLink = a[1].href || a[5].href;
   // this.postLink = a[0].getAttribute('href');
 
   // Get author data
@@ -39,7 +39,7 @@ const Post = function Post(post) {
   this.timeString = post.getElementsByTagName('time')[0].innerText;
 
   // Get vote data
-  this.votes = parseInt(post.getElementsByClassName('unvoted')[1].title);
+  this.votes = parseInt(post.getElementsByClassName('unvoted')[1].title) || 0;
 };
 
 
@@ -65,32 +65,42 @@ const makeSyncRequest = (method, url) => {
 
 const RedditData = function RedditData() {
   const ret = [];
-  this.getData = (callback) => {
+  this.getData = () => {
     const views = ['', 'rising', 'top'];
     views.forEach((view) => {
       const data = [];
-      makeRequest('GET', REDDIT_URL + view, (err, res) => {
-        if (err) {
-          console.error(err);
-          return;
-        }
-        // Parse data
-        const parser = new DOMParser();
-        const htmlDoc = parser.parseFromString(res, "text/html");
+      // makeRequest('GET', REDDIT_URL, (err, res) => {
+      //   if (err) ;
+      //     return;
+      //   }
+      //     // Parse data
+      //     const parser = new DOMParser();
+      //     const htmlDoc = parser.parseFromString(res, "text/html");
+      //
+      //     const htmlPosts = htmlDoc.getElementsByClassName('thing');
+      //     let posts = [];
+      //     for (var post of htmlPosts)
+      //       posts.push(post);
+      //
+      //
+      //     posts.forEach((post) => {
+      //       data.push(new Post(post));
+      //     });
+      // });
+      const parser = new DOMParser();
+      const htmlDoc = parser.parseFromString(makeSyncRequest('GET', REDDIT_URL + view), 'text/html');
+      const htmlPosts = htmlDoc.getElementsByClassName('thing');
+      let posts = [];
+      for (var post of htmlPosts)
+        posts.push(post);
 
-        const htmlPosts = htmlDoc.getElementsByClassName('thing');
-        let posts = [];
-        for (var post of htmlPosts)
-          posts.push(post);
-
-
-        posts.forEach((post) => {
-          data.push(new Post(post));
-        });
+      posts.forEach((post) => {
+        data.push(new Post(post));
       });
+
       ret.push(data);
     });
-    callback(ret);
+    return ret;
   };
 };
 

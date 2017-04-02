@@ -40,12 +40,14 @@ class PostContent extends React.Component {
         default: return false;
       }
       return true;
-    }
+    };
     return (
+      <a href={this.props.postLink}>
       <div style={styles.wrapper}>
         {isImage() && <img style={styles.image} src={this.props.content} alt="Content Image"/>}
         {!isImage() && <Texture style={styles.texture} ></Texture>}
       </div>
+    </a>
     );
   }
 }

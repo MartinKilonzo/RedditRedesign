@@ -30,17 +30,7 @@ class AppComponent extends React.Component {
     };
   }
   componentWillMount = () => {
-    new RedditData().getData((res, err) => {
-      if (err) {
-        console.error(err);
-        return;
-      }
-      this.setState({posts: res}, () => {
-        this.setState(this.state, () => {
-          console.log(this.state.posts)
-        });
-      });
-    });
+      this.setState({posts: new RedditData().getData()});
   }
   toggleNav = () => {
     this.setState({
@@ -48,6 +38,7 @@ class AppComponent extends React.Component {
     });
   }
   render() {
+    console.log(this.state.posts)
     return (
       <MuiThemeProvider muiTheme={theme}>
         <div>
