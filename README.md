@@ -36,7 +36,7 @@ You are now ready to begin installing the program!
 2. Clone the repo
 
   ``` bash
-  $ git clone https://github.com/MartinKilonzo/RedditRedesign/tree/reactDesign
+  $ git clone https://github.com/MartinKilonzo/RedditRedesign/ reactDesign; cd reactDesign
   ```
 3. Install dependencies:
 
