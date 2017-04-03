@@ -14,15 +14,16 @@ Modernized, responsive search feature.
 ## Installation
 
 ### Setup
-You will need node.js (v6.10.1+) to build and run the server [Get Node](https://nodejs.org/en/download/current/).  
-You will need Node Package Manager (v3.10.10+) to install this project:  
-After installing node.js, open your favorite terminal:
+You will need Node.js (v6.10.1+) to build and run the server [Get Node](https://nodejs.org/).  
+You will need Node Package Manager (v4.4.4+) to install this project (installs with Node.js by default):  
+After installing Node.js, open your favorite terminal:
 ```bash
-$ npm install -g npm
-$ npm --version
-3.10.10
+$ node -v
+v6.10.1
+$ npm -v
+4.4.4
 ```
-If you do not get node 3.7+, download it from: [npm v3.7.1](https://registry.npmjs.org/npm/-/npm-3.10.10.tgz) and extract it to the `node_modules` folder of your node.js installation directory.
+If you do not get npm 4.4.4+, download it from: [npm v4.4.4](https://registry.npmjs.org/npm/-/npm-4.4.4.tgz) and extract it to the `node_modules` folder of your node.js installation directory.
 
 You are now ready to begin installing the program!
 
@@ -36,9 +37,9 @@ You are now ready to begin installing the program!
 2. Clone the repo
 
   ``` bash
-  $ git clone https://github.com/MartinKilonzo/RedditRedesign/tree/reactDesign
+  $ git clone https://github.com/MartinKilonzo/redditRedesign; cd redditRedesign
   ```
-3. Install dependencies:
+3. Install dependencies (with Administrator privilages!):
 
   ```bash
   $ npm install
