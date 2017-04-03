@@ -10,9 +10,7 @@ class SubredditComponent extends React.Component {
   }
   handleTouchTap = () => {
     this.props.toggleNav();
-    // TODO: Take user to subreddit
-    // window.load(this.props.link);
-    // console.log(this.props.link);
+    window.location.assign(this.props.link)
   }
   render() {
     return (

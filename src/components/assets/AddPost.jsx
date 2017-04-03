@@ -39,20 +39,10 @@ class AddPostComponent extends React.Component {
         alignItems: 'flex-start'
       }
     }
-    const actions = [ <FlatButton label = "Cancel" primary = {
-        true
-      }
-      onTouchTap = {
-        this.handleClose
-      } />, < FlatButton label = "Submit" primary = {
-        true
-      }
-      disabled = {
-        this.state.postText
-      }
-      onTouchTap = {
-        this.handleClose
-      } />
+    const actions = [
+      <FlatButton label="Cancel" primary={true} onTouchTap={this.handleClose}></FlatButton>,
+      <FlatButton label="Submit" primary={true} disabled={this.state.postText}
+      onTouchTap={this.handleClose}></FlatButton>
     ];
     return (
       <div>
