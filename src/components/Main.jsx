@@ -7,10 +7,12 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
-import Nav from './assets/Nav/Nav';
+import AddPost from './assets/AddPost';
 import ControlBar from './assets/ControlBar';
 import FrontPage from './views/FrontPageView/FrontPageView';
+import Nav from './assets/Nav/Nav';
 import RedditData from '../actions/RedditData';
+
 
 const theme = getMuiTheme({
   palette: {
@@ -18,6 +20,7 @@ const theme = getMuiTheme({
     accent1Color: amber900
   }
 });
+
 
 injectTapEventPlugin();
 class AppComponent extends React.Component {
@@ -44,6 +47,7 @@ class AppComponent extends React.Component {
         <div>
           <ControlBar toggleNav={this.toggleNav}></ControlBar>
           <Nav open={this.state.viewNav} toggleNav={this.toggleNav} subreddits={this.state.subreddits}></Nav>
+          <AddPost></AddPost>
           <FrontPage posts={this.state.posts}></FrontPage>
         </div>
       </MuiThemeProvider>

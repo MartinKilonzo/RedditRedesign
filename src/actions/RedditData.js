@@ -2,7 +2,7 @@ import Moment from 'moment';
 
 
 const PROXY = 'https://cors-anywhere.herokuapp.com/';
-const REDDIT_URL = 'https://www.reddit.com/';
+const REDDIT_URL = 'reddit.com/';
 
 
 
@@ -53,6 +53,7 @@ const Subreddit = function Subreddit(subreddit) {
 const makeRequest = (method, url) => {
   const xhr = new XMLHttpRequest();
   xhr.open(method, PROXY + url, false);
+  xhr.setRequestHeader('X-Requested-With', window.location.protocol + '//' + window.location.host);
   xhr.send(null);
   return xhr.responseText;
 }
